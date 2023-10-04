@@ -11,10 +11,9 @@ textarea {
   
   form {
     display: block;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-size: 11px;
   }
-  
-  
-  
   
   table {
       border-collapse: collapse;
