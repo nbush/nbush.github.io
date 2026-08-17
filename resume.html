@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+  <title>Nick Bush</title>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'> -->
+  <style>
+    body, html {
+      font-family: "Open Sans", sans-serif;
+      font-size: 12pt;
+      padding-top:2.5em;
+      margin:0;
+      background-color:#fafafa;
+      line-height: 1.1em;
+    }
+    
+    .note {
+      display:block;
+      position: absolute;
+      top:10px;
+      left:10px;
+      font-size: 0.6em;
+    }
+    
+    .new {
+      background-color: #81C784;
+      border: 1px solid #757575;
+      padding: 1px;
+      border-radius: 4px;
+    }
+    
+    /* Header */
+    
+    header {
+      width:100%;
+      vertical-align: middle;
+      text-align: center;
+    }
+    
+    .header-content {
+      display: inline-block;
+    }
+    
+    .header-text {
+      margin-top:0.5em;
+      margin-left:1em;
+      font-size: large;
+      font-weight: bold;
+    }
+    
+    header p {
+      text-align:center;
+      margin:0;
+      color: #212121;
+    }
+    
+    .first-name {
+        font-size: 1.05em;
+    }
+    
+    .subtitle {
+      padding-top:.3em;
+      font-size:0.8em;
+      font-weight:500;
+      color: #424242;
+    }
+    
+    /* Information */
+    
+    .paper {
+      margin: 0 auto;
+      margin-bottom:1em;
+      
+      background-color:white;
+      width:60%;
+      
+      padding:1em 0 1em 0;
+      
+      border-top: 1px solid #e0e0e0;
+      border-left: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+      border-bottom: 3px solid #e0e0e0;
+      border-radius:3px;
+    }
+    
+    @media(max-width:992px) {
+      .paper {
+        width:80%;
+      }
+    }
+    
+    /* Content Part */
+    
+    .content-wrapper {
+      padding-right:7.25%;
+    }
+    
+    .content {
+      display:table;
+      width:100%;
+      
+      padding-top:1.5em;
+      
+      /*border-top: 1px solid #eeeeee;*/
+    }
+    
+    .content:last-child {
+      margin-bottom: 2em;
+    }
+    
+    body > div > article > div > section:last-child {
+      padding-bottom:1.5em;
+    }
+    
+    .row {
+        display:table-row;
+    }
+    .row div {
+        display:table-cell;
+    }
+    
+    .content-cat {
+      color: #212121;
+      
+      vertical-align:middle;
+    
+      padding-left:6.66%;
+      width:25%;
+    }
+    
+    .content-cat p {
+      font-size:0.8em;
+      font-weight:400;
+      color: #505050;
+      margin-bottom:0;
+    }
+    
+    .big-text {
+      vertical-align:top;
+    }
+    
+    .content-text ul {
+      padding:0;
+      margin:0;
+      margin-top:0.15em;
+      
+      width:85%;
+      margin-left:1.5em;
+    }
+    
+    .content-text ul:last-child {
+      margin-bottom:0.5em;
+    }
+    
+    .content-text ul li {
+      font-size:0.8em;
+      
+      display:inline-block;
+    }
+    
+    .content-text ul li:first-child {
+      width:35%;
+      
+      color: #424242;
+      
+      font-weight:600;
+    }
+    
+    .content-text ul li a, div.content-text.work-listing.education-listing > p > strong > a {
+      text-decoration: none;
+      color: #0277bd;
+    }
+    
+    .content-text ul li a:hover {
+      color:#4fc3f7;
+    }
+    
+    .work-listing p {
+      font-size:0.8em;
+      
+      color: #424242;
+      
+      margin-left:2em;
+      margin-top:0.45em;
+      margin-bottom: 0.45em;
+    }
+    
+    div.content-text.work-listing.education-listing > p:nth-child(2) {
+      margin-top:0.25em;
+    }
+    
+    .work-listing .highlight {
+      font-size:0.8em;
+      font-weight:400;
+      
+      color: #424242;
+      
+      padding-left:0.5em;
+      
+      border-left:4px solid #e0e0e0;
+      
+    }
+    
+    .education-listing > .heading {
+      font-weight:600;
+      
+      margin-top:0.75em;
+      margin-left:2em;
+    }
+    
+    .education-listing > .highlight {
+      margin-left:3.25em;
+    }
+    
+    .highlight {
+      transition: border .33s ease-in;
+    }
+    
+    .profiles-listing ul li, .profiles-listing ul li:first-child {
+      width:32%;
+      font-weight: normal;
+    }
+    
+    .work-content, .education-content {
+      padding-top: .75em;
+    }
+    
+    section.content.education-content > div > div.content-cat {
+      vertical-align: top;
+    }
+    
+    div.content-text.skills-listing > p {
+      font-size:0.8em;
+      font-weight:400;
+    
+      margin-left: 2em;
+      margin-top: 0.45em;
+      margin-bottom: 0.45em;
+    }
+    
+    div.content-text.skills-listing > p > {
+      color:#212121;
+    }
+    
+    @media screen and (max-width: 600px) {
+      body, html {
+        padding-top: 30px;
+      }
+    
+      .paper {
+        width:95%;
+      }
+    
+      .row div {
+        display: block;
+      }
+    
+      .content-cat {
+        width: 100%;
+      }
+    
+      .content-text ul li {
+        width: 100%;
+      }
+    
+      .content-text ul li:first-child {
+        width: 100%;
+      }
+      
+      .education-listing > .highlight {
+        margin-left: 30px;
+      }
+    }</style>
+    
+    <style media="print">
+    body, html {
+      background-color: white;
+      padding-top: 1.5em;
+    }
+    
+    .paper {
+      width:100%;
+      border: 0;
+    
+      padding-top: 0;
+    }
+    
+    header p {
+      font-size: 1.3em;
+    }
+    
+    .subtitle {
+      font-size: 0.7em;
+    }
+    
+    .header-pic {
+      float:left;
+    }
+    
+    .profiles {
+      display:none;
+    }
+    
+    .content {
+      page-break-inside:avoid; 
+      page-break-after:auto;
+    }
+    
+    .header-text {
+      float:left;
+      margin-top: -1.6em;
+    }
+    
+    .content-wrapper > .content:first-child {
+      padding-top: 2em;
+    }
+    
+    .content:last-child {
+      padding-bottom: 0;
+    }
+    
+    .content-cat {
+      width:33%;
+      color:black;
+      text-align: left;
+    }
+    
+    .content-cat p {
+      font-size:0.8em;
+      font-weight: 600;
+    }
+    
+    header p, .content-text, .work-listing p, .content-text ul li:first-child, .work-listing .highlight, .content-text.skills-listing > ul > li > .highlight {
+      color:black;
+    }
+    
+    .content-text.skills-listing > ul > li span, .subtitle {
+      color:#212121;
+    }
+    
+    .content-text ul:last-child {
+      margin-bottom: 0.25em;
+    }
+    
+    .content-text ul li:first-child {
+      width:50%;
+    }
+    
+    .profiles-listing ul li:first-child {
+      width:32%;
+    }
+    
+    div.content-text.skills-listing > ul > li {
+      width:33%;
+    }
+    
+    .work-listing p {
+      margin-bottom: 0.1em;
+    }
+    
+    div.content-text.skills-listing > ul > li > p {
+      margin-top: 0.4em;
+      margin-bottom: 0.5em;
+    }
+    
+    div.content-text.skills-listing > ul > li {
+      padding-left: 1.5em;
+    }
+    
+    div.content-text.skills-listing > ul > li:first-child {
+      padding-left: 2em;
+    }
+    
+    .note {
+      display:none;
+    }
+    
+    .content-text:hover {
+      border-left:1px solid #eeeeee;
+    }
+    
+    .content-text ul li a:hover {
+      color:#4fc3f7;
+    }
+    
+    .highlight:hover, .content-text.skills-listing > ul > li > .highlight:hover {
+      border-left:1px solid #eeeeee;
+    }
+    
+    .big-text {
+      padding-top: 0;
+    }
+    </style>
+</head>
+<body>
+  <div class="resume-wrapper">
+    <article class="paper">
+        <header>
+          <div class="header-content">
+            <div class="header-text">
+              <p>
+                Nick Bush
+              </p>
+              <p class="subtitle">Designer</p>
+            </div>
+          </div>
+        </header>
+        <div class="content-wrapper">
+          <!-- CONTACT -->
+          <section class="content">
+            <div class="row">
+              <div class="content-cat">
+                Contact
+              </div>
+              <div class="content-text">
+                  <!-- <ul>
+                    <li>Website</li>
+                    <li><a href="http://njdbush.com/">njdbush.com</a></li>
+                  </ul> -->
+                  <ul>
+                    <li>GitHub</li>
+                    <li><a href="https://github.com/nbush" target="_blank">github.com/nbush</a></li>
+                  </ul>
+                  <!-- <ul>
+                    <li>itch</li>
+                    <li><a href="https://bushn.itch.io/" target="_blank">bushn.itch.io/</a></li>
+                  </ul> -->
+                  <ul>
+                    <li>Email</li>
+                    <li>njdbush@gmail.com</li>
+                  </ul>
+                  <ul>
+                    <li>Phone</li>
+                    <li>(416) 270-3804</li>
+                  </ul>
+                  <ul style="margin-bottom: 0.15em;">
+                      <li>Location</li>
+                      <li>Toronto, Canada</li>
+                  </ul>
+              </div>
+            </div>
+          </section>
+                <section class="content">
+                  <div class="row">
+                    <div class="content-cat big-text">
+                        Work
+                          <p>2025-02 — present</p>
+                    </div>
+                    <div class="content-text work-listing">
+                          <p>
+                          <strong>Senior Content Strategist</strong>
+                          at <strong><a href="https://www.getgrist.com/" target="_blank">Grist Labs</a>:</strong>
+                        </p>
+                        <p>New role based on owning higher-level components of Grist's overall strategy.</p>
+                          <p class="highlight">Designed and delivered content for open source software used in the French civil service (>20k users)</p>
+                          <p class="highlight">Published monthly newsletter which collected feature updates, dev notes, and community activity</p>
+                          <p class="highlight">Organized, designed and ran a virtual conference with 12 internal and external speakers</p>
+                          <p class="highlight">Owned day-to-day community engagement</p>
+                    </div>
+                  </div>
+                </section>
+                <section class="content">
+                  <div class="row">
+                    <div class="content-cat big-text">
+                          <p>2023-08 — 2025-02</p>
+                    </div>
+                    <div class="content-text work-listing">
+                          <p>
+                          <strong>Senior Content Manager</strong>
+                          at <strong><a href="https://www.getgrist.com/" target="_blank">Grist Labs</a>:</strong>
+                        </p>
+                        <p><a href="https://github.com/gristlabs/grist-core" target="_blank">Grist</a> is an open source spreadsheet/database hybrid pitched as the evolution of the spreadsheet.</p>
+                          <!-- <p class="highlight">TBD</p>
+                          <p class="highlight">TBD</p>
+                          <p class="highlight">Organized, designed and ran a virtual conference the Grist community with 12 internal and external speakers</p>
+                          <p class="highlight">TBD</p> -->
+                    </div>
+                  </div>
+                </section>
+                <section class="content">
+                  <div class="row">
+                    <div class="content-cat big-text">
+                          <p>2021-08 — 2023-04</p>
+                    </div>
+                    <div class="content-text work-listing">
+                          <p>
+                          <strong>Technical Editor</strong>
+                          at <strong><a href="https://store.steampowered.com/app/1839880/" target="_blank">Tributary Games</a>:</strong>
+                        </p>
+                        <p><a href="https://store.steampowered.com/app/1839880/" target="_blank">King of the Castle</a> is a Twitch-connected multiplayer narrative strategy game released on Steam in 2023.</p>
+                          <p class="highlight">Edited and integrated over 900,000 words of branching content</p>
+                          <p class="highlight">Developed narrative tools and Ink-specific functionality to increase content flexibility</p>
+                          <p class="highlight">Responsible for narrative and strategic balance as part of design team</p>
+                          <p class="highlight">Conducted internal QA and processed analytics for narrative analysis</p>
+                    </div>
+                  </div>
+                </section>
+                <section class="content work-content">
+                  <div class="row">
+                    <div class="content-cat big-text">
+                          <p>2019-06 — 2021-08</p>
+                    </div>
+                    <div class="content-text work-listing">
+                          <p>
+                          <strong>Narrative Support</strong>
+                          at <strong><a href="https://store.steampowered.com/app/1227400" target="_blank">Stave Studios</a>:</strong>
+                        </p>
+                        <p>Stave Studios released their debut game <a href="https://store.steampowered.com/app/1227400" target="_blank">Over the Alps</a> in 2019 on Apple Arcade, which went on to win the Writers' Guild award for Best Writing in a Videogame.</p>
+                          <p class="highlight">Coordinated with external localization team to translate a language-focused game into 14 languages</p>
+                          <p class="highlight">Helped the Narrative Design team implement branching narrative using Ink & Unity</p>
+                          <p class="highlight">Worked on tools to help automate tests and assisted internal and external QA teams during development</p>
+                    </div>
+                  </div>
+                </section>
+                <section class="content work-content">
+                  <div class="row">
+                    <div class="content-cat big-text">
+                          <p>2018-07 — 2021-08</p>
+                    </div>
+                    <div class="content-text work-listing">
+                          <p>
+                          <strong>Conversation Designer</strong>
+                          at <strong><a href="https://www.247.ai/" target="_blank">[24]7.ai</a>:</strong>
+                        </p>
+                        <p>[24]7.ai is one of the largest customer experience providers with a focus on AI-powered chatbots and automated voice systems.</p>
+                          <p class="highlight">Designed, implemented and maintained chatbots and voice user interfaces for Fortune 500 clients</p>
+                          <p class="highlight">Owned the design of conversation flows and user intent guides</p>
+                          <p class="highlight">Created client-facing performance reports and provided tuning and optimization recommendations</p>
+                          <p class="highlight">Contributed to each step of project delivery: from data-driven natural language model creation to grammar writing</p>
+                          <p class="highlight">Gained working knowledge of multiple types of interfaces (voice, chat, knowledge base), launched on different platforms and built using various tools</p>
+                    </div>
+                  </div>
+                </section>
+                <section class="content work-content">
+                    <div class="row">
+                      <div class="content-cat big-text">
+                            <p>2013-11 — 2017-12</p>
+                      </div>
+                      <div class="content-text work-listing">
+                            <p>
+                            <strong>Project Lead</strong>
+                            at <strong><a href="http://moonraystudios.com" target="_blank">Moonray Studios</a>:</strong>
+                          </p>
+                          <p>Moonray Studios specializes in digital media, from interactive productions for broadcasters (web/mobile) to original independent PC games.</p>
+                            <p class="highlight">Created successful funding proposals for <a href="http://debristhegame.com/" target="_blank">Debris</a> and several other projects, raising $1.7M in the process</p>
+                            <p class="highlight">Wrote and designed <i>Debris'</i> narrative and oversaw voice recording and technical implementation into Unity</p>
+                            <p class="highlight">Worked with medical professionals and advisors to portray an empathetic representation of psychosis in a mainstream game (<i>Debris</i>)</p>
+                            <p class="highlight">Worked with top Canadian broadcasters like CBC and Teletoon to deliver coproductions on time and on budget</p>
+                        </div>
+                    </div>
+                  </section>
+
+                <section class="content">
+                  <div class="row">
+                    <div class="content-cat big-text">
+                        Education
+                          <p>2008 — 2013</p>
+                    </div>
+                    <div class="content-text work-listing">
+                        <p class="heading" style="margin-top:2.5em;">University of Waterloo</p>
+                        <p class="highlight">
+                          Bachelor:
+                          <i>Rhetoric and Professional Writing - Digital Arts Communications specialization </i>
+                        </p>
+                    </div>
+                  </div>
+                </section>
+
+          <section class="content">
+            <div class="row">
+              <div class="content-cat" style="vertical-align:top;padding-top:0.75em">
+                Skills
+              </div>
+              <section class="content work-content">
+                <div class="row">
+                  <div class="content-text work-listing">
+                    <p>
+                      <strong>Design</strong>
+                    </p>
+                      <p class="highlight">Narrative Design (Ink, Twine)</p>
+                      <p class="highlight">Conversation Design (Chat, Voice)</p>
+                      <p class="highlight">Natural Language (Grammars, NLTK)</p>
+                  </div>
+                </div>
+              </section>
+              <section class="content work-content">
+                <div class="row">
+                  <div class="content-text work-listing">
+                      <p>
+                      <strong>Professional Writing</strong>
+                    </p>
+                      <p class="highlight">Editing</p>
+                      <p class="highlight">Long-form & Creative Writing</p>
+                      <p class="highlight">Technical Writing</p>
+                      <p class="highlight">Funding Proposal Development</p>
+                  </div>
+                </div>
+              </section>
+              <section class="content work-content">
+                <div class="row">
+                  <div class="content-text work-listing">
+                      <p>
+                      <strong>Game Development</strong>
+                    </p>
+                      <p class="highlight">Unity</p>
+                      <p class="highlight">Android/iOS</p>
+                      <p class="highlight">HTML5</p>
+                  </div>
+                </div>
+              </section>
+              <section class="content work-content">
+                <div class="row">
+                  <div class="content-text work-listing">
+                      <p>
+                      <strong>Web Development</strong>
+                    </p>
+                      <p class="highlight">HTML</p>
+                      <p class="highlight">CSS</p>
+                      <p class="highlight">Javascript</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+  <!-- LANGUAGE -->
+            <section class="content">
+              <div class="row">
+                <div class="content-cat">
+                  Languages
+                </div>
+                <div class="content-text">
+                    <ul>
+                        <li>English</li>
+                        <li>Native speaker</li>
+                    </ul>
+                    <ul style="margin-bottom: 0.15em;">
+                        <li>French</li>
+                        <li>Professional working</li>
+                    </ul>
+                </div>
+              </div>
+            </section>
+        </div>
+    </article>
+  </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+h1 {
+    margin-bottom: 1.5rem;
+    letter-spacing: 0px;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 30s; /* Safari 4.0 - 8.0 */
+    animation-name: expand;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+h4 {
+    margin-bottom: 1rem;
+    letter-spacing: 0px;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 40s; /* Safari 4.0 - 8.0 */
+    animation-name: expand;
+    animation-duration: 40s;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes expand {
+    from {letter-spacing: 0px;}
+    to {letter-spacing: 5px;}
+  }
+  
+/* Standard syntax */
+@keyframes expand {
+    from {letter-spacing: 0px;}
+    to {letter-spacing: 5px;}
+}
+
+header {
+    margin-top: 4em;
+}
+
+blockquote {
+    margin-left: 1em;
+    padding: 0.5em;
+    background: #cecece;
+}
+
+button {
+    margin: 1em auto;
+    padding: 1em;
+}
+
+.blog-sidebar p {
+    margin: 0;
+    font-size: 1rem;
+    color: #777;
+}
+
+.blog-sidebar a {
+    font-size: 1rem;
+}
+
+footer {
+    margin-top: 4em;
+}
+
+.mobile {
+    display: none;
+}
+
+.img-parent {
+    height: auto;
+    padding: 0 3%;
+}
+
+.img-parent p {
+    font-size: small;
+    font-weight: lighter;
+    color: #777;
+}
+
+.img-parent :hover {
+    color: #888;
+}
+
+.img-parent :hover img {
+    opacity: 0.9;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(min-content, max-content);
+    row-gap: 1em;
+}
+
+@media (max-width: 768px) { 
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .blog-sidebar p {
+        font-size: small;
+    }
+
+    .img-parent {
+        font-size: x-small;
+    }
+
+    .img-parent p {
+        font-size: xx-small;
+    }
+ }
+
+@media (max-width: 575.99px) { 
+    header {
+        margin-top: 1em;
+    }
+
+    h4 {
+        margin: 1rem 0;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .blog-sidebar p {
+        font-size: 100%;
+    }
+
+    .blog-sidebar {
+        margin-top: 0em;
+    }
+
+    .img-parent {
+        background-color: #eeeeee;
+        font-size: 100%;
+        width: 100%;
+        margin: 2rem 0;
+        padding: 3%;
+    }
+
+    .img-parent :hover {
+        /* background-color: #fff; */
+    }
+
+    .img-parent p {
+        font-size: 100%;
+    }
+
+    .grid-wrapper {
+        display: inline;
+    }
+ }
