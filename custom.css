@@ -10,7 +10,7 @@ h1 {
 }
 
 h4 {
-    margin-bottom: 1rem;
+    margin: 2rem 0 1rem 0;
     letter-spacing: 0px;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 40s; /* Safari 4.0 - 8.0 */
@@ -73,7 +73,7 @@ footer {
 
 .img-parent p {
     font-size: small;
-    font-weight: lighter;
+    /* font-weight: lighter; */
     color: #777;
 }
 
@@ -83,6 +83,10 @@ footer {
 
 .img-parent :hover img {
     opacity: 0.9;
+}
+
+.img-parent img {
+    height: 130px;
 }
 
 .grid-wrapper {
@@ -99,6 +103,10 @@ footer {
 
     .blog-sidebar p {
         font-size: small;
+    }
+
+    .img-parent img {
+        height: 60px;
     }
 
     .img-parent {
